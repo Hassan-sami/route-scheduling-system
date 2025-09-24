@@ -1,0 +1,53 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Driver {
+  id           String    @id 
+  name         String
+  licenseType  String
+  availability Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  
+  assignments Assignment[]
+  
+  @@map("drivers")
+}
+
+model Route {
+  id             Int      @id @default(autoincrement())
+  startLocation  String
+  endLocation    String
+  distance       Float
+  estimatedTime  Float
+  status         String   @default("pending")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  
+  assignments Assignment[]
+  
+  @@map("routes")
+}
+
+model Assignment {
+  id          Int      @id @default(autoincrement())
+  driverId    String
+  routeId     Int
+  assignedAt  DateTime @default(now())
+  completedAt DateTime?
+  status      String   @default("active")
+  
+  driver Driver @relation(fields: [driverId], references: [id], onDelete: Cascade)
+  route  Route  @relation(fields: [routeId], references: [id], onDelete: Cascade)
+  
+  @@unique([driverId, routeId])
+  @@map("assignments")
+}
