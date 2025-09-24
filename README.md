@@ -86,3 +86,26 @@ Before you begin, ensure you have the following installed:
 
 ✅ Follow these steps and the system will be ready to run on
 `http://localhost:3000`.
+
+------------------------------------------------------------------------
+
+## API Endpoints
+
+### Drivers
+
+- **POST /drivers** - Create a new driver
+- **GET /drivers** - Get all drivers (paginated)
+- **GET /drivers/:id** - Get driver by ID
+- **GET /drivers/:id/history** - Get driver's route history
+
+### Routes
+
+- **POST /routes** - Create a new route (automatically assigns driver)
+- **GET /routes** - Get all routes (paginated)
+- **GET /routes/:id** - Get route by ID
+
+### Schedule
+
+- **GET /schedule** - Get current schedule (driver-route assignments)
+- **POST /schedule/assign** - Manually assign driver to route
+- **POST /schedule/complete** - Mark route as completed
