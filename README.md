@@ -56,12 +56,12 @@ Before you begin, ensure you have the following installed:
 ## Assumptions Made 🤔
 
 -   **Driver Availability**: Drivers are created as available by
-    default.\
+    default.
 -   **Automatic Assignment**: The system assigns the first available
-    driver (FIFO).\
+    driver (FIFO).
 -   **Single Assignment**: Each driver can only handle one active route
-    at a time.\
--   **Route Status Flow**: `pending → assigned/unassigned → completed`.\
+    at a time.
+-   **Route Status Flow**: `pending → assigned/unassigned → completed`.
 -   **Assignment Priority**: Available drivers are prioritized over busy
     ones.
 
@@ -70,16 +70,16 @@ Before you begin, ensure you have the following installed:
 ## Features Implemented ✨
 
 -   **Driver Management**
-    -   Create drivers with license types & availability.\
-    -   Retrieve drivers with pagination.\
+    -   Create drivers with license types & availability.
+    -   Retrieve drivers with pagination.
     -   View driver details & assignments.
 -   **Route Management**
-    -   Create routes with distance & estimated time.\
-    -   Automatic driver assignment upon route creation.\
+    -   Create routes with distance & estimated time.
+    -   Automatic driver assignment upon route creation.
     -   Paginated route listings.
 -   **Scheduling System**
-    -   Real-time driver-route assignment.\
-    -   Automatic & manual assignment.\
+    -   Real-time driver-route assignment.
+    -   Automatic & manual assignment.
     -   Route completion & driver availability updates.
 
 ------------------------------------------------------------------------
