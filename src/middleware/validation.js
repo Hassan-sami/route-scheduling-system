@@ -1,8 +1,8 @@
 const validateDriver = (req, res, next) => {
   if(req.method == 'POST'){
-    const { name, licenseType } = req.body;
+    const { name, licenseType,id } = req.body;
                                           
-    if (!name || !licenseType) {
+    if (!name || !licenseType || !id) {
       return res.status(400).json({ 
         success: false,
         error: 'Missing required fields: name, licenseType' 

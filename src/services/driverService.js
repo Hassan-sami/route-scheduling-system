@@ -2,21 +2,21 @@ const prisma = require('../config/database');
 
 class DriverService {
   async createDriver(driverData) {
-    const { customId, name, licenseType, availability = true } = driverData;
+    const { id, name, licenseType, availability = true } = driverData;
     
     // Check if customId already exists
-    if (customId) {
+    if (id) {
       const existingDriver = await prisma.driver.findUnique({
-        where: { customId }
+        where: { id }
       });
       if (existingDriver) {
-        throw new Error('Driver with this custom ID already exists');
+        throw new Error('Driver with this ID already exists');
       }
     }
 
     return await prisma.driver.create({
       data: {
-        customId,
+        id,
         name,
         licenseType,
         availability
