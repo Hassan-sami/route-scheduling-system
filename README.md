@@ -56,12 +56,12 @@ Before you begin, ensure you have the following installed:
 ## Assumptions Made 🤔
 
 -   **Driver Availability**: Drivers are created as available by
-    default.\
+    default.
 -   **Automatic Assignment**: The system assigns the first available
-    driver (FIFO).\
+    driver (FIFO).
 -   **Single Assignment**: Each driver can only handle one active route
-    at a time.\
--   **Route Status Flow**: `pending → assigned/unassigned → completed`.\
+    at a time.
+-   **Route Status Flow**: `pending → assigned/unassigned → completed`.
 -   **Assignment Priority**: Available drivers are prioritized over busy
     ones.
 
@@ -70,19 +70,42 @@ Before you begin, ensure you have the following installed:
 ## Features Implemented ✨
 
 -   **Driver Management**
-    -   Create drivers with license types & availability.\
-    -   Retrieve drivers with pagination.\
+    -   Create drivers with license types & availability.
+    -   Retrieve drivers with pagination.
     -   View driver details & assignments.
 -   **Route Management**
-    -   Create routes with distance & estimated time.\
-    -   Automatic driver assignment upon route creation.\
+    -   Create routes with distance & estimated time.
+    -   Automatic driver assignment upon route creation.
     -   Paginated route listings.
 -   **Scheduling System**
-    -   Real-time driver-route assignment.\
-    -   Automatic & manual assignment.\
+    -   Real-time driver-route assignment.
+    -   Automatic & manual assignment.
     -   Route completion & driver availability updates.
 
 ------------------------------------------------------------------------
 
 ✅ Follow these steps and the system will be ready to run on
 `http://localhost:3000`.
+
+------------------------------------------------------------------------
+
+## API Endpoints
+
+### Drivers
+
+- **POST /drivers** - Create a new driver
+- **GET /drivers** - Get all drivers (paginated)
+- **GET /drivers/:id** - Get driver by ID
+- **GET /drivers/:id/history** - Get driver's route history
+
+### Routes
+
+- **POST /routes** - Create a new route (automatically assigns driver)
+- **GET /routes** - Get all routes (paginated)
+- **GET /routes/:id** - Get route by ID
+
+### Schedule
+
+- **GET /schedule** - Get current schedule (driver-route assignments)
+- **POST /schedule/assign** - Manually assign driver to route
+- **POST /schedule/complete** - Mark route as completed
